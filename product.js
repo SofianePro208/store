@@ -47,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFeedback(message, type) {
-        const feedbackEl = dom.formFeedback || dom.contactFormFeedback;
+        // This function now works for any page that has a feedback div
+        const feedbackEl = dom.formFeedback || document.getElementById('contact-form-feedback');
         if (feedbackEl) {
             feedbackEl.textContent = message;
             feedbackEl.className = type;
