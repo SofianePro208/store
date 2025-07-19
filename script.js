@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburgerBtn: document.getElementById('hamburger-btn'),
         mobileMenu: document.getElementById('mobile-menu'),
         contactForm: document.getElementById('contact-form'),
-        contactFormFeedback: document.getElementById('contact-form-feedback')
+        contactFormFeedback: document.getElementById('contact-form-feedback'),
+        productsSection: document.getElementById('products') // <-- FIX: Added a reference to the section
     };
 
     // --- STATE ---
@@ -87,11 +88,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- EVENT LISTENERS ---
     dom.searchInput.addEventListener('input', () => { state.currentPage = 1; updateProductsDisplay(); });
     dom.searchForm.addEventListener('submit', (event) => { event.preventDefault(); state.currentPage = 1; updateProductsDisplay(); dom.searchInput.blur(); });
-    dom.prevPageBtn.addEventListener('click', () => { if (state.currentPage > 1) { state.currentPage--; updateProductsDisplay(); } });
+    
+    dom.prevPageBtn.addEventListener('click', () => {
+        if (state.currentPage > 1) {
+            state.currentPage--;
+            updateProductsDisplay();
+            // --- FIX: Scroll up after changing page ---
+            dom.productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
     dom.nextPageBtn.addEventListener('click', () => {
         const totalPages = Math.ceil(state.filteredProducts.length / state.productsPerPage);
-        if (state.currentPage < totalPages) { state.currentPage++; updateProductsDisplay(); }
+        if (state.currentPage < totalPages) {
+            state.currentPage++;
+            updateProductsDisplay();
+            // --- FIX: Scroll up after changing page ---
+            dom.productsSection.scrollIntoView({ behavior: 'smooth' });
+        }
     });
+
     dom.themeToggleBtn.addEventListener('click', () => { const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark'; applyTheme(newTheme); });
     dom.scrollUpBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     window.addEventListener('scroll', () => { dom.scrollUpBtn.classList.toggle('show', window.scrollY > 300); });
