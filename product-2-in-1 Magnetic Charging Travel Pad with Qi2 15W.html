@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="productPageTitle">Anker 312 Charger - Expert Store</title>
+    <title data-lang-key="productPageTitle">2-in-1 Magnetic Charging Travel Pad with Qi2 15W - Expert Store</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,15 +82,24 @@
                 </div>
                 <div class="order-section">
                     <div id="form-feedback"></div>
-                    <form id="order-form">
-                        <h2 data-lang-key="orderFormTitle">Order This Product</h2>
-                        <div class="form-group"><label for="fullName" data-lang-key="formName">Full Name</label><input type="text" id="fullName" required></div>
-                        <div class="form-group"><label for="phone" data-lang-key="formPhone">Phone Number</label><input type="tel" id="phone" required></div>
-                        <div class="form-group"><label for="address" data-lang-key="formAddress">Shipping Address</label><textarea id="address" rows="3" required></textarea></div>
-                        <div class="form-group"><label for="userNotes" data-lang-key="formNotes">Notes (Optional)</label><textarea id="userNotes" name="userNotes" rows="3" data-lang-key="formNotesPlaceholder" placeholder="e.g., specific color, gift wrapping, etc."></textarea></div>
-                        <div class="form-group"><label for="quantity" data-lang-key="formQuantity">Quantity</label><input type="number" id="quantity" value="1" min="1" max="10"></div>
-                        <button type="submit" class="btn btn-primary" data-lang-key="formSubmit">Submit Order</button>
-                    </form>
+                <!-- 
+                    ACTION: Paste your NEW Product Order Formspree URL here.
+                    METHOD: Must be POST.
+                -->
+                <form id="order-form" action="https://formspree.io/f/xdkdanjk" method="POST">
+                    <h2>Order This Product</h2>
+                    
+                    <!-- This hidden field tells you which product was ordered -->
+                    <input type="hidden" id="product-name-input" name="2-in-1 Magnetic Charging Travel Pad with Qi2 15W">
+
+                    <div class="form-group"><label for="fullName">Full Name</label><input type="text" id="fullName" name="Name" required></div>
+                    <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="Phone" required></div>
+                    <div class="form-group"><label for="address">Shipping Address</label><textarea id="address" name="Address" rows="3" required></textarea></div>
+                    <div class="form-group"><label for="userNotes">Notes (Optional)</label><textarea id="userNotes" name="Notes" rows="3" placeholder="e.g., specific color, gift wrapping, etc."></textarea></div>
+                    <div class="form-group"><label for="quantity">Quantity</label><input type="number" id="quantity" name="Quantity" value="1" min="1" max="10"></div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit Order</button>
+                </form>
                 </div>
             </div>
         </div>
