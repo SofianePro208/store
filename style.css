@@ -234,17 +234,5 @@ main { overflow: hidden; }
 .back-to-products-btn:hover span {
     transform: translateX(-5px); /* Arrow moves left on hover */
 }
-.social-links {
-    margin-bottom: 15px;
-}
-.social-links a {
-    color: var(--text-color);
-    font-size: 1.8rem;
-    margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-5px);
-}
+
 
