@@ -149,11 +149,9 @@ main { overflow: hidden; }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--glow-color); }
 .form-group input[type="number"] { width: 80px; }
 #order-form .btn-primary, #contact-form .btn-primary { width: 100%; font-size: 1.1em; padding: 15px; }
-#form-feedback, #contact-form-feedback { padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: 600; }
-#form-feedback.success, #contact-form-feedback.success { background-color: #28a745; color: #fff; }
-#form-feedback.error, #contact-form-feedback.error { background-color: #dc3545; color: #fff; }
-#contact-form-feedback { display: none; }
-#contact-form-feedback.success, #contact-form-feedback.error { display: block; }
+#form-feedback, #contact-form-feedback { padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: 600; display: none; }
+#form-feedback.success, #contact-form-feedback.success { background-color: #28a745; color: #fff; display: block; }
+#form-feedback.error, #contact-form-feedback.error { background-color: #dc3545; color: #fff; display: block; }
 
 /* --- Policy Page Styles --- */
 .policy-container { padding-top: 60px; padding-bottom: 60px; max-width: 900px; }
@@ -190,7 +188,7 @@ main { overflow: hidden; }
 @media (max-width: 992px) {
     .main-nav { display: none; }
     #hamburger-btn { display: block; }
-    .mobile-menu { display: block; } /* <-- THE FIX */
+    .mobile-menu { display: block; } 
     .product-page-container { grid-template-columns: 1fr; }
 }
 
