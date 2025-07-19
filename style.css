@@ -1,4 +1,4 @@
-/* --- V2.7: EXPERT STORE FINAL CSS with Definitive Grid Fix --- */
+/* --- V2.8: EXPERT STORE FINAL CSS with Mobile Menu Fix --- */
 
 /* --- CSS Variables --- */
 :root {
@@ -103,12 +103,7 @@ main { overflow: hidden; }
 .products-section .search-btn { position: absolute; top: 50%; right: 8px; transform: translateY(-50%); width: 40px; height: 40px; border: none; background: none; font-size: 1.5em; cursor: pointer; color: var(--subtle-text-color); }
 
 /* --- Product Grid --- */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 300px)); /* <-- Corrected Rule */
-    gap: 30px;
-    justify-content: center; /* <-- Corrected Rule */
-}
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 300px)); gap: 30px; justify-content: center; }
 .product-card { position: relative; background-color: var(--surface-color); border-radius: var(--border-radius); padding: 3px; overflow: hidden; transition: var(--transition-medium); z-index: 1; display: flex; flex-direction: column; }
 .product-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--brand-gradient); opacity: 0; transition: var(--transition-medium); z-index: -2; }
 .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
@@ -144,19 +139,21 @@ main { overflow: hidden; }
 .description ul { list-style-type: disc; padding-left: 20px; color: var(--subtle-text-color); }
 .description ul li { margin-bottom: 8px; }
 
-/* --- Order Form Styles --- */
-.order-section { background-color: var(--surface-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); }
-#order-form h2 { text-align: center; margin-bottom: 25px; font-size: 1.8em; }
+/* --- Order & Contact Forms --- */
+.order-section, .contact-form-container { background-color: var(--surface-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); }
+.contact-form-container { max-width: 700px; margin: 0 auto; background-color: var(--background-color); padding: 40px; }
+#order-form h2, #contact-form h2 { text-align: center; margin-bottom: 25px; font-size: 1.8em; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
-.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--background-color); color: var(--text-color); font-size: 1em; transition: var(--transition-fast); }
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--glow-color); }
+.form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--background-color); color: var(--text-color); font-size: 1em; transition: var(--transition-fast); }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px var(--glow-color); }
 .form-group input[type="number"] { width: 80px; }
-.form-group select { -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em; cursor: pointer; }
-#order-form .btn-primary { width: 100%; font-size: 1.1em; padding: 15px; }
-#form-feedback { padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: 600; }
-#form-feedback.success { background-color: #28a745; color: #fff; }
-#form-feedback.error { background-color: #dc3545; color: #fff; }
+#order-form .btn-primary, #contact-form .btn-primary { width: 100%; font-size: 1.1em; padding: 15px; }
+#form-feedback, #contact-form-feedback { padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: 600; }
+#form-feedback.success, #contact-form-feedback.success { background-color: #28a745; color: #fff; }
+#form-feedback.error, #contact-form-feedback.error { background-color: #dc3545; color: #fff; }
+#contact-form-feedback { display: none; }
+#contact-form-feedback.success, #contact-form-feedback.error { display: block; }
 
 /* --- Policy Page Styles --- */
 .policy-container { padding-top: 60px; padding-bottom: 60px; max-width: 900px; }
@@ -190,62 +187,26 @@ main { overflow: hidden; }
 .reveal-on-scroll { transition-delay: calc(0.1s * var(--stagger-index, 0)); }
 
 /* --- Responsive Design --- */
-@media (max-width: 992px) { .main-nav { display: none; } #hamburger-btn { display: block; } .mobile-menu { display: block; } .product-page-container { grid-template-columns: 1fr; } }
-@media (max-width: 768px) { .hero h1 { font-size: 2.5em; } .products-section #search-input { height: 50px; } .footer-content { flex-direction: column; text-align: center; } .main-footer { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); } }
+@media (max-width: 992px) {
+    .main-nav { display: none; }
+    #hamburger-btn { display: block; }
+    .mobile-menu { display: block; } /* <-- THE FIX */
+    .product-page-container { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5em; }
+    .products-section #search-input { height: 50px; }
+    .footer-content { flex-direction: column; text-align: center; }
+    .main-footer { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); }
+}
 
 /* --- Mobile Menu --- */
-.mobile-menu { display: none; position: fixed; top: 76px; left: 0; width: 100%; height: calc(100vh - 76px); background-color: var(--surface-color); transform: translateX(-100%); transition: transform 0.3s ease-in-out; z-index: 999; overflow-y: auto; }
+.mobile-menu {
+    display: none; position: fixed; top: 76px; left: 0; width: 100%; height: calc(100vh - 76px);
+    background-color: var(--surface-color); transform: translateX(-100%); transition: transform 0.3s ease-in-out;
+    z-index: 999; overflow-y: auto;
+}
 .mobile-menu.active { transform: translateX(0); }
 .mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
 .mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
-
-
-
-
-/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
-
-/* --- Contact Section Styles --- */
-.contact-section {
-    background-color: var(--surface-color);
-}
-
-.contact-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-md);
-}
-
-#contact-form h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.8em;
-}
-
-#contact-form .btn-primary {
-    width: 100%;
-    font-size: 1.1em;
-    padding: 15px;
-}
-
-/* --- Contact Form Feedback Styles --- */
-#contact-form-feedback {
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 600;
-    display: none; /* Hidden by default */
-}
-#contact-form-feedback.success {
-    background-color: #28a745;
-    color: #fff;
-    display: block;
-}
-#contact-form-feedback.error {
-    background-color: #dc3545;
-    color: #fff;
-    display: block;
-}
