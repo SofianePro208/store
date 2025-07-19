@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="productPageTitle">Anker 312 Charger - Expert Store</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header remains the same -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">ExpertStore</a>
+            <nav class="main-nav">
+                <a href="index.html#home" data-lang-key="navHome">Home</a>
+                <a href="index.html#products" data-lang-key="navProducts">Products</a>
+                <a href="index.html#about" data-lang-key="navAbout">About Us</a>
+                <a href="index.html#contact" data-lang-key="navContact">Contact</a>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle-btn" title="Toggle Theme">☀️</button>
+                <button id="lang-toggle-btn" title="Toggle Language">العربية</button>
+                <button id="hamburger-btn" title="Toggle Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu remains the same -->
+    <div id="mobile-menu" class="mobile-menu">
+        <nav class="mobile-menu-links">
+             <a href="index.html#home" data-lang-key="navHomeMobile">Home</a>
+             <a href="index.html#products" data-lang-key="navProductsMobile">Products</a>
+             <a href="index.html#about" data-lang-key="navAboutMobile">About Us</a>
+             <a href="index.html#contact" data-lang-key="navContactMobile">Contact</a>
+        </nav>
+    </div>
+
+    <!-- =================================================================
+         MAIN PRODUCT CONTENT (IMAGES AND SIZING FIXED)
+    ================================================================== -->
+    <main>
+        <div class="container product-page-container">
+
+            <!-- Left Column: Upgraded Product Image Gallery -->
+            <div class="product-image-gallery">
+                <!-- Main Image Display -->
+                <div class="main-product-image">
+                    <img id="main-image" src="images/HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD/0.jpg" alt="Anker 312 Charger (20W) - Front View">
+                </div>
+
+                <!-- Thumbnail Gallery with Real Images -->
+                <div class="thumbnail-gallery">
+                    <img class="active-thumbnail" src="images/HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD/1.jpg" alt="Front View Thumbnail">
+                    <img src="images/HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD/2.jpg" alt="Side View Thumbnail">
+                    <img src="images/HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD/3.jpg" alt="In Use Thumbnail">
+                </div>
+            </div>
+
+            <!-- Right Column: Details and Order Form (No changes needed here) -->
+            <div class="product-details">
+                <h1 data-lang-key="productName">HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD</h1>
+                <p class="price">2,500.00 DA </p>
+                <div class="description">
+                    <h2 data-lang-key="descriptionTitle">Description</h2>
+                    <p data-lang-key="productDescription">This 8K HDMI cable features the latest HDMI 2.1 technology, supporting ultra-high bandwidth up to 48Gbps. It delivers stunning video quality with resolutions up to 8K@60Hz and 4K@120Hz, offering a major leap in transmission speed over previous HDMI versions.
+It supports HDCP 2.2 & 2.3, Dynamic HDR, and advanced audio formats such as DTS Master, DTS:X, Dolby Atmos, and Enhanced Audio Return Channel (eARC) for an immersive audio-visual experience.</p>
+                    <h3 class="specifications-title" data-lang-key="specificationsTitle">Key Specifications</h3>
+                    <ul>
+                        <li data-lang-key="specFeature1"><strong>HDMI 2.1 – Ultra High Speed, 48Gbps:</strong> This high-speed 8K HDMI cable supports the latest HDMI 2.1 standard with bandwidth up to 48Gbps. Delivers ultra-clear resolution at 8K@60Hz and 4K@120Hz with significantly improved transmission speed. Supports HDCP 2.2 & 2.3, Dynamic HDR, and high-definition audio formats like DTS Master, DTS:X, Dolby Atmos, and eARC.</li>
+                        <li data-lang-key="specFeature2"><strong>Stunning 8K@60Hz Visuals:</strong> Supports 8K@60Hz and 4K@120Hz, rendering every pixel with precision. With 12-bit color and Dynamic HDR, this cable ensures exceptional depth, brightness, contrast, and color range. Combined with Dolby Vision and Dolby Atmos, it offers a fully immersive viewing experience.</li>
+                        <li data-lang-key="specFeature3"><strong>Designed for Gamers:</strong> Built for next-gen gaming, this cable supports Variable Refresh Rate (VRR), unlocking the full potential of your GPU and CPU. It adapts refresh rates dynamically to reduce lag, tearing, and stuttering, ensuring smoother, more detailed gameplay.</li>
+                        <li data-lang-key="specFeature4"><strong>Durable & Wide Compatibility:</strong> Made with a triple-shielded, ultra-durable design tested for over 15,000+ plug/unplug cycles and 3000+ bends at 90°. Compatible with PS5, PS4 Pro, 8K UHD TVs, QLED TVs, Roku, Blu-ray players, projectors, NVIDIA RTX 3080/3090, and more.</li>
+                    </ul>
+                </div>
+                <div class="order-section">
+                    <div id="form-feedback"></div>
+                    <form id="order-form">
+                        <h2 data-lang-key="orderFormTitle">Order This Product</h2>
+                        <div class="form-group"><label for="fullName" data-lang-key="formName">Full Name</label><input type="text" id="fullName" required></div>
+                        <div class="form-group"><label for="phone" data-lang-key="formPhone">Phone Number</label><input type="tel" id="phone" required></div>
+                        <div class="form-group"><label for="address" data-lang-key="formAddress">Shipping Address</label><textarea id="address" rows="3" required></textarea></div>
+                        <div class="form-group"><label for="userNotes" data-lang-key="formNotes">Notes (Optional)</label><textarea id="userNotes" name="userNotes" rows="3" data-lang-key="formNotesPlaceholder" placeholder="e.g., specific color, gift wrapping, etc."></textarea></div>
+                        <div class="form-group"><label for="quantity" data-lang-key="formQuantity">Quantity</label><input type="number" id="quantity" value="1" min="1" max="10"></div>
+                        <button type="submit" class="btn btn-primary" data-lang-key="formSubmit">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer remains the same -->
+    <footer id="contact" class="main-footer">
+        <div class="container"><div class="footer-content"><div class="footer-column"><h3 data-lang-key="footerAbout">About ExpertStore</h3><p data-lang-key="footerAboutText">Your one-stop shop for high-quality electronics and accessories at the best prices.</p></div><div class="footer-column"><h3 data-lang-key="footerLinks">Quick Links</h3><ul><li><a href="privacy-policy.html" data-lang-key="footerLinkPrivacy">Privacy Policy</a></li><li><a href="terms-of-service.html" data-lang-key="footerLinkTos">Terms of Service</a></li><li><a href="return-policy.html" data-lang-key="footerLinkReturns">Return Policy</a></li></ul></div><div class="footer-column"><h3 data-lang-key="footerContact">Contact Us</h3><p>Email: contact@expertstore.com</p><p>Phone: +123 456 7890</p></div></div><div class="footer-bottom"><p data-lang-key="footerCopyright">© 2025 ExpertStore. All Rights Reserved.</p></div></div>
+    </footer>
+
+    <button id="scroll-up-btn" title="Go to top">▲</button>
+    <script src="product.js"></script>
+</body>
+</html>

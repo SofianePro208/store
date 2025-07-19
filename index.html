@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Store - Professional Tech</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header (Language button removed) -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">ExpertStore</a>
+            <nav class="main-nav">
+                <a href="#home">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="header-controls">
+                <button id="theme-toggle-btn" title="Toggle Theme">☀️</button>
+                <button id="hamburger-btn" title="Toggle Menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <nav class="mobile-menu-links">
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Next-Gen Tech, Unbeatable Prices</h1>
+                <p>Discover the best deals on the latest gadgets and accessories.</p>
+                <a href="#products" class="btn btn-primary">Explore Products</a>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <form id="search-form" class="search-form">
+                    <input type="search" id="search-input" placeholder="Search featured products...">
+                    <button type="submit" class="search-btn">🔍</button>
+                </form>
+                <div id="product-grid" class="product-grid">
+                    <!-- Product cards remain the same -->
+				<a href="product-anker-charger.html" class="product-card">
+                        <div class="product-card-image"><img src="images/Anker 312 Charger (20W)/0.jpg" alt="Anker 312 Charger"></div>
+                        <div class="product-info"><h3>Anker 312 Charger (20W)</h3><p class="price">1,900.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                    <!-- Card 2 -->
+                    <a href="product-Anker MagGo Power Bank (10K, Slim).html" class="product-card">
+                        <div class="product-card-image"><img src="images/Anker MagGo Power Bank (10K, Slim)/0.JPG" alt="Soundcore P20i Earbuds"></div>
+                        <div class="product-info"><h3>Anker MagGo Power Bank (10K, Slim)</h3><p class="price">3,500.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                    <!-- Card 3 -->
+                    <a href="product-soundcore 3  Bluetooth Speaker with Stereo Sound.html" class="product-card">
+                        <div class="product-card-image"><img src="images/soundcore 3  Bluetooth Speaker with Stereo Sound/0.JPG" alt="Anker Power Bank 10K"></div>
+                        <div class="product-info"><h3>soundcore 3  Bluetooth Speaker with Stereo Sound</h3><p class="price">4,200.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                    <!-- Card 4 -->
+                    <a href="product-”X59 Victory” USB to Type-C Cable – Charging & Data Sync.html" class="product-card">
+                        <div class="product-card-image"><img src="images/”X59 Victory” USB to Type-C Cable – Charging & Data Sync/0.JPG" alt="Anker USB-C to C Cable"></div>
+                        <div class="product-info"><h3>”X59 Victory” USB to Type-C Cable – Charging & Data Sync</h3><p class="price">1,500.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                    <!-- Card 5 -->
+                    <a href="product-HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD.html" class="product-card">
+                        <div class="product-card-image"><img src="images/HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD/0.JPG" alt="Anker 8K HDMI Cable"></div>
+                        <div class="product-info"><h3>HDMI 8K 2.1 Cable – Ultra High Speed, 60Hz, Ultra HD</h3><p class="price">2,500.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                    <!-- Card 6 -->
+                    <a href="product-2-in-1 Magnetic Charging Travel Pad with Qi2 15W.html" class="product-card">
+                        <div class="product-card-image"><img src="images/2-in-1 Magnetic Charging Travel Pad with Qi2 15W/0.JPG" alt="Anker Wireless Charger Stand"></div>
+                        <div class="product-info"><h3>2-in-1 Magnetic Charging Travel Pad with Qi2 15W</h3><p class="price">3,800.00 DA</p><button class="btn btn-secondary">View Details</button></div>
+                    </a>
+                </div>
+                <div id="no-results-message" class="no-results-message" style="display: none;"><p data-lang-key="noResults">No products found matching your search.</p></div>
+                <div id="pagination-controls" class="pagination-controls"><button id="prev-page-btn" class="btn btn-secondary" data-lang-key="prevButton">Previous</button><span id="page-info"></span><button id="next-page-btn" class="btn btn-secondary" data-lang-key="nextButton">Next</button></div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Why Choose Us?</h2>
+                <div id="features-grid" class="features-grid">
+                    <div class="feature-item"><div class="feature-icon">🚀</div><h3>Fast Shipping</h3><p>Get your orders delivered to your doorstep in record time.</p></div>
+                    <div class="feature-item"><div class="feature-icon">🛡️</div><h3>Quality Guaranteed</h3><p>We only source original products from trusted brands.</p></div>
+                    <div class="feature-item"><div class="feature-icon">💬</div><h3>24/7 Support</h3><p>Our team is always here to help you with any questions.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-form-container">
+                    <form id="contact-form">
+                        <div id="contact-form-feedback"></div>
+                        <div class="form-group"><label for="contact-name">Full Name</label><input type="text" id="contact-name" required></div>
+                        <div class="form-group"><label for="contact-email">Email Address</label><input type="email" id="contact-email" required></div>
+                        <div class="form-group"><label for="contact-message">Message</label><textarea id="contact-message" rows="5" required></textarea></div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column"><h3>About ExpertStore</h3><p>Your one-stop shop for high-quality electronics and accessories at the best prices.</p></div>
+                <div class="footer-column"><h3>Quick Links</h3><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li><li><a href="return-policy.html">Return Policy</a></li></ul></div>
+                <div class="footer-column"><h3>Contact Us</h3><p>Email: contact@expertstore.com</p><p>Phone: +123 456 7890</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2025 ExpertStore. All Rights Reserved.</p></div>
+        </div>
+    </footer>
+    
+    <button id="scroll-up-btn" title="Go to top">▲</button>
+    <script src="script.js"></script>
+</body>
+</html>
