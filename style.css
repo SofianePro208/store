@@ -1,4 +1,4 @@
-/* --- V2.8: EXPERT STORE FINAL CSS with Mobile Menu Fix --- */
+/* --- V2.9: EXPERT STORE FINAL CSS with Alternating Backgrounds --- */
 
 /* --- CSS Variables --- */
 :root {
@@ -162,8 +162,11 @@ main { overflow: hidden; }
 .policy-container strong { color: var(--text-color); font-weight: 600; }
 
 /* --- About & Footer & Scroll --- */
+.about-section {
+    background-color: var(--surface-color); /* <-- THIS IS THE NEW RULE */
+}
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: center; }
-.feature-item { background: var(--surface-color); padding: 40px 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); transition: var(--transition-medium); }
+.feature-item { background: var(--background-color); padding: 40px 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); transition: var(--transition-medium); }
 .feature-item:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
 .feature-item .feature-icon { font-size: 3em; line-height: 1; }
 .main-footer { background-color: var(--surface-color); color: var(--subtle-text-color); padding: 60px 0 20px; margin-top: 60px; border-top: 1px solid var(--border-color); clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 100%); }
@@ -174,6 +177,9 @@ main { overflow: hidden; }
 .footer-column ul li { margin-bottom: 10px; }
 .footer-column a { color: var(--subtle-text-color); text-decoration: none; }
 .footer-column a:hover { color: var(--primary-color); }
+.social-links { display: flex; gap: 15px; align-items: center; }
+.social-links a { display: inline-flex; justify-content: center; align-items: center; width: 44px; height: 44px; background-color: var(--border-color); color: var(--subtle-text-color); border-radius: 50%; text-decoration: none; font-size: 1.2em; transition: var(--transition-fast); }
+.social-links a:hover { background-color: var(--primary-color); color: #fff; transform: translateY(-3px); }
 .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid var(--border-color); }
 #scroll-up-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: var(--surface-translucent); backdrop-filter: blur(5px); color: var(--text-color); border: 1px solid var(--border-color); border-radius: 50%; font-size: 1.5em; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: var(--transition-medium); z-index: 998; }
 #scroll-up-btn.show { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -185,118 +191,11 @@ main { overflow: hidden; }
 .reveal-on-scroll { transition-delay: calc(0.1s * var(--stagger-index, 0)); }
 
 /* --- Responsive Design --- */
-@media (max-width: 992px) {
-    .main-nav { display: none; }
-    #hamburger-btn { display: block; }
-    .mobile-menu { display: block; } 
-    .product-page-container { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5em; }
-    .products-section #search-input { height: 50px; }
-    .footer-content { flex-direction: column; text-align: center; }
-    .main-footer { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); }
-}
+@media (max-width: 992px) { .main-nav { display: none; } #hamburger-btn { display: block; } .mobile-menu { display: block; } .product-page-container { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .hero h1 { font-size: 2.5em; } .products-section #search-input { height: 50px; } .footer-content { flex-direction: column; text-align: center; } .main-footer { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); } }
 
 /* --- Mobile Menu --- */
-.mobile-menu {
-    display: none; position: fixed; top: 76px; left: 0; width: 100%; height: calc(100vh - 76px);
-    background-color: var(--surface-color); transform: translateX(-100%); transition: transform 0.3s ease-in-out;
-    z-index: 999; overflow-y: auto;
-}
+.mobile-menu { display: none; position: fixed; top: 76px; left: 0; width: 100%; height: calc(100vh - 76px); background-color: var(--surface-color); transform: translateX(-100%); transition: transform 0.3s ease-in-out; z-index: 999; overflow-y: auto; }
 .mobile-menu.active { transform: translateX(0); }
 .mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
 .mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
-/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
-
-/* --- Back to Products Button Style --- */
-.back-to-products-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px; /* Space between arrow and text */
-    margin-bottom: 25px; /* Space below the button */
-    font-weight: 600;
-    color: var(--subtle-text-color);
-    text-decoration: none;
-    transition: var(--transition-fast);
-}
-
-.back-to-products-btn span {
-    font-size: 1.2em;
-    transition: transform 0.2s ease-out;
-}
-
-.back-to-products-btn:hover {
-    color: var(--primary-color);
-}
-
-.back-to-products-btn:hover span {
-    transform: translateX(-5px); /* Arrow moves left on hover */
-}
-/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
-
-/* --- Social Media Links in Footer --- */
-.social-links {
-    display: flex;
-    gap: 15px; /* Space between icons */
-    align-items: center;
-}
-
-.social-links a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
-    background-color: var(--border-color);
-    color: var(--subtle-text-color);
-    border-radius: 50%; /* Makes it a circle */
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: var(--transition-fast);
-}
-
-.social-links a:hover {
-    background-color: var(--primary-color);
-    color: #fff;
-    transform: translateY(-3px); /* Lifts the icon on hover */
-}
-
-/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
-
-/* --- 404 Error Page Styles --- */
-.error-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 60vh; /* Ensures the content is vertically centered */
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.error-code {
-    font-size: clamp(6em, 25vw, 12em); /* Responsive font size */
-    font-weight: 700;
-    line-height: 1;
-    background: var(--brand-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.error-message {
-    font-size: clamp(1.5em, 5vw, 2.5em);
-    color: var(--text-color);
-    margin-top: 10px;
-}
-
-.error-explanation {
-    font-size: 1.1em;
-    color: var(--subtle-text-color);
-    max-width: 500px;
-    margin-top: 15px;
-    margin-bottom: 40px;
-}
