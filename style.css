@@ -208,3 +208,29 @@ main { overflow: hidden; }
 .mobile-menu.active { transform: translateX(0); }
 .mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
 .mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
+
+/* --- Back to Products Button Style --- */
+.back-to-products-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between arrow and text */
+    margin-bottom: 25px; /* Space below the button */
+    font-weight: 600;
+    color: var(--subtle-text-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.back-to-products-btn span {
+    font-size: 1.2em;
+    transition: transform 0.2s ease-out;
+}
+
+.back-to-products-btn:hover {
+    color: var(--primary-color);
+}
+
+.back-to-products-btn:hover span {
+    transform: translateX(-5px); /* Arrow moves left on hover */
+}
