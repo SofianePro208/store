@@ -234,5 +234,32 @@ main { overflow: hidden; }
 .back-to-products-btn:hover span {
     transform: translateX(-5px); /* Arrow moves left on hover */
 }
+/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
 
+/* --- Social Media Links in Footer --- */
+.social-links {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    align-items: center;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--border-color);
+    color: var(--subtle-text-color);
+    border-radius: 50%; /* Makes it a circle */
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-3px); /* Lifts the icon on hover */
+}
 
