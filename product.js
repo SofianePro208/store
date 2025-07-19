@@ -12,7 +12,20 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollUpBtn: document.getElementById('scroll-up-btn'),
         productNameH1: document.getElementById('product-name'),
         productNameInput: document.getElementById('product-name-input'),
+        effectiveDateEl: document.getElementById('effective-date') // <-- NEW
     };
+
+    // =================================================================
+    //  NEW: DYNAMIC DATE/TIME LOGIC FOR POLICY PAGES
+    // =================================================================
+    if (dom.effectiveDateEl) {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = now.toLocaleDateString('en-US', options);
+        const formattedTime = now.toLocaleTimeString('en-US');
+        
+        dom.effectiveDateEl.textContent = `This document is effective as of: ${formattedDate} at ${formattedTime}`;
+    }
 
     // --- IMAGE GALLERY LOGIC ---
     if (dom.mainImage && dom.thumbnails.length > 0) {
@@ -25,24 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =================================================================
-    //  UPGRADED: ORDER FORM LOGIC WITH AJAX/FETCH
-    // =================================================================
+    // --- ORDER FORM LOGIC ---
     if (dom.orderForm) {
-        // Automatically set the product name in the hidden input field
         if (dom.productNameH1 && dom.productNameInput) {
             dom.productNameInput.value = dom.productNameH1.textContent.trim();
         }
 
-        dom.orderForm.addEventListener('submit', async (event) => {
+        dom.order-form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            
             const form = event.target;
-            const feedbackEl = dom.formFeedback;
             const submitButton = form.querySelector('button[type="submit"]');
 
-            // --- Client-Side Validation ---
-            feedbackEl.className = '';
             const fullName = document.getElementById('fullName').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const address = document.getElementById('address').value.trim();
@@ -55,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // --- Submission ---
             submitButton.disabled = true;
             submitButton.textContent = 'Submitting Order...';
 
@@ -68,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     showFeedback('Your order has been received successfully! We will contact you soon.', 'success');
-                    form.style.display = 'none'; // Hide form on success
+                    form.style.display = 'none';
                 } else {
                     showFeedback('Oops! Something went wrong. Please try again.', 'error');
                     submitButton.disabled = false;
