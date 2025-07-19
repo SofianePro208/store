@@ -263,3 +263,40 @@ main { overflow: hidden; }
     transform: translateY(-3px); /* Lifts the icon on hover */
 }
 
+/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
+
+/* --- 404 Error Page Styles --- */
+.error-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 60vh; /* Ensures the content is vertically centered */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.error-code {
+    font-size: clamp(6em, 25vw, 12em); /* Responsive font size */
+    font-weight: 700;
+    line-height: 1;
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.error-message {
+    font-size: clamp(1.5em, 5vw, 2.5em);
+    color: var(--text-color);
+    margin-top: 10px;
+}
+
+.error-explanation {
+    font-size: 1.1em;
+    color: var(--subtle-text-color);
+    max-width: 500px;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
