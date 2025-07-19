@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- DOM ELEMENTS (Corrected) ---
+    // --- DOM ELEMENTS ---
     const dom = {
         searchForm: document.getElementById('search-form'),
         productGrid: document.getElementById('product-grid'),
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         paginationControls: document.getElementById('pagination-controls'),
         themeToggleBtn: document.getElementById('theme-toggle-btn'),
         scrollUpBtn: document.getElementById('scroll-up-btn'),
-        hamburgerBtn: document.getElementById('hamburger-btn'), // <-- FIX: This line was missing
-        mobileMenu: document.getElementById('mobile-menu'),     // <-- FIX: This line was missing
+        hamburgerBtn: document.getElementById('hamburger-btn'),
+        mobileMenu: document.getElementById('mobile-menu'),
         contactForm: document.getElementById('contact-form'),
         contactFormFeedback: document.getElementById('contact-form-feedback')
     };
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     dom.scrollUpBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     window.addEventListener('scroll', () => { dom.scrollUpBtn.classList.toggle('show', window.scrollY > 300); });
     
-    // Hamburger Menu Listener (This will now work correctly)
     dom.hamburgerBtn.addEventListener('click', () => { 
         const isActive = dom.mobileMenu.classList.toggle('active'); 
         dom.hamburgerBtn.textContent = isActive ? '✕' : '☰'; 
