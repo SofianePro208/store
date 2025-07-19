@@ -12,12 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollUpBtn: document.getElementById('scroll-up-btn'),
         productNameH1: document.getElementById('product-name'),
         productNameInput: document.getElementById('product-name-input'),
-        effectiveDateEl: document.getElementById('effective-date') // <-- NEW
+        effectiveDateEl: document.getElementById('effective-date')
     };
 
-    // =================================================================
-    //  NEW: DYNAMIC DATE/TIME LOGIC FOR POLICY PAGES
-    // =================================================================
+    // --- DYNAMIC DATE/TIME LOGIC FOR POLICY PAGES ---
     if (dom.effectiveDateEl) {
         const now = new Date();
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -44,7 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
             dom.productNameInput.value = dom.productNameH1.textContent.trim();
         }
 
-        dom.order-form.addEventListener('submit', async (event) => {
+        // THE FIX IS HERE: Corrected "dom.orderForm" from "dom.order-form"
+        dom.orderForm.addEventListener('submit', async (event) => {
             event.preventDefault();
             const form = event.target;
             const submitButton = form.querySelector('button[type="submit"]');
