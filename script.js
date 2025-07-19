@@ -95,28 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
     dom.themeToggleBtn.addEventListener('click', () => { const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark'; applyTheme(newTheme); });
     dom.scrollUpBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     window.addEventListener('scroll', () => { dom.scrollUpBtn.classList.toggle('show', window.scrollY > 300); });
-    
-    dom.hamburgerBtn.addEventListener('click', () => { 
-        const isActive = dom.mobileMenu.classList.toggle('active'); 
-        dom.hamburgerBtn.textContent = isActive ? '✕' : '☰'; 
-    });
-    
-    dom.mobileMenu.addEventListener('click', (e) => { 
-        if (e.target.tagName === 'A') { 
-            dom.mobileMenu.classList.remove('active'); 
-            dom.hamburgerBtn.textContent = '☰'; 
-        } 
-    });
+    dom.hamburgerBtn.addEventListener('click', () => { const isActive = dom.mobileMenu.classList.toggle('active'); dom.hamburgerBtn.textContent = isActive ? '✕' : '☰'; });
+    dom.mobileMenu.addEventListener('click', (e) => { if (e.target.tagName === 'A') { dom.mobileMenu.classList.remove('active'); dom.hamburgerBtn.textContent = '☰'; } });
 
     if (dom.contactForm) {
-        dom.contactForm.addEventListener('submit', (event) => {
+        dom.contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
-            dom.contactFormFeedback.className = '';
             
+            const form = event.target;
+            const feedbackEl = dom.contactFormFeedback;
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            feedbackEl.className = '';
             const name = document.getElementById('contact-name').value.trim();
             const email = document.getElementById('contact-email').value.trim();
             const message = document.getElementById('contact-message').value.trim();
-            
             if (!name || !email || !message) {
                 showContactFeedback('Please fill out all fields.', 'error');
                 return;
@@ -125,9 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 showContactFeedback('Please enter a valid email address.', 'error');
                 return;
             }
-            
-            showContactFeedback('Thank you! Your message has been sent.', 'success');
-            dom.contactForm.reset();
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    showContactFeedback('Thank you! Your message has been sent.', 'success');
+                    form.reset();
+                } else {
+                    showContactFeedback('Oops! Something went wrong. Please try again.', 'error');
+                }
+            } catch (error) {
+                showContactFeedback('Oops! There was a network problem. Please try again.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            }
         });
     }
 
