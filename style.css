@@ -1,4 +1,4 @@
-/* --- V2.9: EXPERT STORE FINAL CSS with Alternating Backgrounds --- */
+/* --- V3.0: EXPERT STORE FINAL CSS with Form Consistency Fix --- */
 
 /* --- CSS Variables --- */
 :root {
@@ -138,10 +138,14 @@ main { overflow: hidden; }
 .specifications-title { font-size: 1.3em; margin-top: 30px; margin-bottom: 15px; color: var(--text-color); }
 .description ul { list-style-type: disc; padding-left: 20px; color: var(--subtle-text-color); }
 .description ul li { margin-bottom: 8px; }
+.back-to-products-btn { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; font-weight: 600; color: var(--subtle-text-color); text-decoration: none; transition: var(--transition-fast); }
+.back-to-products-btn span { font-size: 1.2em; transition: transform 0.2s ease-out; }
+.back-to-products-btn:hover { color: var(--primary-color); }
+.back-to-products-btn:hover span { transform: translateX(-5px); }
 
 /* --- Order & Contact Forms --- */
 .order-section, .contact-form-container { background-color: var(--surface-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); }
-.contact-form-container { max-width: 700px; margin: 0 auto; background-color: var(--background-color); padding: 40px; }
+.contact-form-container { max-width: 700px; margin: 0 auto; padding: 40px; } /* Removed background-color to keep it consistent with order-section */
 #order-form h2, #contact-form h2 { text-align: center; margin-bottom: 25px; font-size: 1.8em; }
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
@@ -162,9 +166,7 @@ main { overflow: hidden; }
 .policy-container strong { color: var(--text-color); font-weight: 600; }
 
 /* --- About & Footer & Scroll --- */
-.about-section {
-    background-color: var(--surface-color); /* <-- THIS IS THE NEW RULE */
-}
+.about-section { background-color: var(--surface-color); }
 .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: center; }
 .feature-item { background: var(--background-color); padding: 40px 30px; border-radius: var(--border-radius); box-shadow: var(--shadow-md); transition: var(--transition-medium); }
 .feature-item:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
