@@ -220,3 +220,15 @@ main { overflow: hidden; }
 .mobile-menu.active { transform: translateX(0); }
 .mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
 .mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+
+/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
+
+/* --- Effective Date Style for Policy Pages --- */
+.effective-date-style {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--subtle-text-color);
+    margin-top: -15px; /* Pulls it closer to the title */
+    margin-bottom: 40px; /* Adds space before the main content */
+}
