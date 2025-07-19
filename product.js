@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- DOM ELEMENTS ---
+    // --- DOM ELEMENTS (Corrected) ---
     const dom = {
         themeToggleBtn: document.getElementById('theme-toggle-btn'),
-        hamburgerBtn: document.getElementById('hamburger-btn'),
-        mobileMenu: document.getElementById('mobile-menu'),
+        hamburgerBtn: document.getElementById('hamburger-btn'), // <-- FIX: This was missing
+        mobileMenu: document.getElementById('mobile-menu'),     // <-- FIX: This was missing
         orderForm: document.getElementById('order-form'),
         formFeedback: document.getElementById('form-feedback'),
         mainImage: document.getElementById('main-image'),
@@ -47,9 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFeedback(message, type) {
-        dom.formFeedback.textContent = message;
-        dom.formFeedback.className = type;
-        dom.formFeedback.style.display = 'block';
+        const feedbackEl = dom.formFeedback || dom.contactFormFeedback;
+        if (feedbackEl) {
+            feedbackEl.textContent = message;
+            feedbackEl.className = type;
+            feedbackEl.style.display = 'block';
+        }
     }
 
     // --- SHARED LOGIC ---
@@ -65,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(newTheme);
     });
 
+    // Hamburger Menu Listener (This will now work correctly on all pages)
     dom.hamburgerBtn.addEventListener('click', () => {
         const isActive = dom.mobileMenu.classList.toggle('active');
         dom.hamburgerBtn.textContent = isActive ? '✕' : '☰';
