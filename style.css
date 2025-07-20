@@ -1,4 +1,4 @@
-/* --- V3.3: EXPERT STORE FINAL CSS with Smooth Scroll --- */
+/* --- V3.3: EXPERT STORE FINAL CSS with Definitive Mobile Menu Fix --- */
 
 /* --- CSS Variables --- */
 :root {
@@ -35,9 +35,7 @@ body.dark-mode {
 }
 
 /* --- General & Body --- */
-html {
-    scroll-behavior: smooth; /* <-- THE FIX */
-}
+html { scroll-behavior: smooth; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 ::selection { background-color: var(--primary-color); color: #fff; }
 body { font-family: 'Poppins', sans-serif; background-color: var(--background-color); color: var(--text-color); transition: var(--transition-medium); line-height: 1.7; overflow-x: hidden; }
@@ -167,6 +165,7 @@ main { overflow: hidden; }
 .policy-container p, .policy-container li { line-height: 1.8; color: var(--subtle-text-color); margin-bottom: 15px; }
 .policy-container ul { list-style: none; padding: 0; }
 .policy-container strong { color: var(--text-color); font-weight: 600; }
+.effective-date-style { text-align: center; font-style: italic; font-size: 0.9em; color: var(--subtle-text-color); margin-top: -15px; margin-bottom: 40px; }
 
 /* --- About & Footer & Scroll --- */
 .about-section { background-color: var(--surface-color); }
@@ -195,11 +194,42 @@ main { overflow: hidden; }
 .reveal { opacity: 1; transform: translateY(0); }
 .reveal-on-scroll { transition-delay: calc(0.1s * var(--stagger-index, 0)); }
 
+/* ================================================================ */
+/* --- START: DEFINITIVE MOBILE MENU STYLES --- */
+/* ================================================================ */
+.mobile-menu {
+    position: fixed;
+    top: 76px; /* Height of the header */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 76px);
+    background-color: var(--surface-color);
+    
+    /* Hiding mechanism */
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.3s ease-in-out, visibility 0.3s;
+    
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
+.mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+/* ================================================================ */
+/* --- END: DEFINITIVE MOBILE MENU STYLES --- */
+/* ================================================================ */
+
+
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
     .main-nav { display: none; }
     #hamburger-btn { display: block; }
-    .mobile-menu { display: block; } 
     .product-page-container { grid-template-columns: 1fr; }
 }
 
@@ -209,26 +239,4 @@ main { overflow: hidden; }
     .footer-content { flex-direction: column; text-align: center; }
     .main-footer { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%); }
     .social-links { justify-content: center; }
-}
-
-/* --- Mobile Menu --- */
-.mobile-menu {
-    display: none; position: fixed; top: 76px; left: 0; width: 100%; height: calc(100vh - 76px);
-    background-color: var(--surface-color); transform: translateX(-100%); transition: transform 0.3s ease-in-out;
-    z-index: 999; overflow-y: auto;
-}
-.mobile-menu.active { transform: translateX(0); }
-.mobile-menu-links { display: flex; flex-direction: column; padding-top: 30px; }
-.mobile-menu-links a { text-align: center; padding: 20px; font-size: 1.5em; font-weight: 600; color: var(--text-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
-
-/* --- ADD THESE STYLES TO THE END OF YOUR style.css FILE --- */
-
-/* --- Effective Date Style for Policy Pages --- */
-.effective-date-style {
-    text-align: center;
-    font-style: italic;
-    font-size: 0.9em;
-    color: var(--subtle-text-color);
-    margin-top: -15px; /* Pulls it closer to the title */
-    margin-bottom: 40px; /* Adds space before the main content */
 }
